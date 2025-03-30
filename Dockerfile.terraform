@@ -1,0 +1,18 @@
+# Description: Dockerfile to build a container with Terraform installed
+FROM ubuntu:latest
+
+USER root
+
+# Update and install dependencies
+RUN apt-get update && apt-get install -y wget unzip
+
+COPY /terraform /terraform
+WORKDIR /terraform
+
+# Download and install Terraform
+RUN wget https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip \
+    && unzip terraform_1.5.0_linux_amd64.zip \
+    && mv terraform /usr/local/bin/ \
+    && rm terraform_1.5.0_linux_amd64.zip
+
+CMD ["sleep", "infinity"]
