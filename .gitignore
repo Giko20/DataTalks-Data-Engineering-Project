@@ -1,0 +1,20 @@
+# Ignore compiled files
+*.class
+*.pyc
+
+# Ignore logs and system files
+logs/
+*.log
+.DS_STORE
+
+# Ignore environment files
+.env
+venv/
+node_modules/
+
+# Ignore json files, including credentials
+keys/
+*.json
+
+plugins/
+__pycache__/
